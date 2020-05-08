@@ -15,9 +15,9 @@ namespace WeatherApp.ViewModels
             GetCityWeatherCommand = new Command(async () =>
             {
                 var weatherPageVM = new CurrentWeatherViewModel(TheTown);
-                var weatherPage = new CurrentWeatherPage();
+                var weatherPage = new CurrentWeatherPage(TheTown);
                 weatherPage.BindingContext = weatherPageVM;
-                await Application.Current.MainPage.Navigation.PopModalAsync();
+                await Application.Current.MainPage.Navigation.PushModalAsync(weatherPage);
             });
         }
         public Command GetCityWeatherCommand { get; }

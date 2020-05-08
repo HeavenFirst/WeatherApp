@@ -17,20 +17,23 @@ namespace WeatherApp.Views
     //[XamlCompilation(XamlCompilationOptions.Compile)]
     [DesignTimeVisible(false)]
     public partial class CurrentWeatherPage : ContentPage
-    {
-        public CurrentWeatherPage()
-        {
-            InitializeComponent();
-            GetCoordinates();
-        }
-        private string Location { get; set; } = "England";
+    {       
+        private string Location { get; set; } = "France";
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public CurrentWeatherPage(string city)
-        {
-            InitializeComponent();
-            Location = city;
-            GetWetherInfo();
+        {            
+            if (city != string.Empty)
+            {
+                 InitializeComponent();
+                Location = city;
+                GetWetherInfo();
+            }
+            else
+            {
+                InitializeComponent();
+                GetCoordinates();
+            }
         }
         
 

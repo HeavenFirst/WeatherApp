@@ -36,10 +36,8 @@ namespace WeatherApp.Views
         }
 
         private async void OnClickedWeather(object sender, System.EventArgs e)
-        {
-            ImageButton button = (ImageButton)sender;
-            button.BackgroundColor = Color.Red;
-            await Navigation.PushModalAsync(new CurrentWeatherPage("London"));
+        {           
+            await Navigation.PushAsync(new CurrentWeatherPage("Mountain View,United States"));
         }
     }
 }
