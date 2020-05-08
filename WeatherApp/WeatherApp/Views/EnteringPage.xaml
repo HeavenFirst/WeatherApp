@@ -8,16 +8,28 @@
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
                 <RowDefinition Height=".2*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Label Text="text" FontSize="Title" Grid.Row="0"
-                 VerticalOptions="CenterAndExpand"
-                 HorizontalOptions="CenterAndExpand" />
-
-            <Button Grid.Row="1"
-                    Text="Dismiss" Command="{Binding DismissPageCommand}" />
+            <BoxView Grid.RowSpan="2" BackgroundColor="#7585BA" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+            <Image x:Name="bgImg" Aspect="AspectFill" Grid.RowSpan="2" Source="earth.png" Opacity="0.2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <ImageButton Source="lines.png" Margin="20"  WidthRequest="23" HeightRequest="15" HorizontalOptions="Start" VerticalOptions="Center" Clicked="OnClickedBack"/>
+            <Grid Grid.Row="1">
+                <StackLayout Spacing="20">
+                    <StackLayout  Spacing="50" HorizontalOptions="Center" >
+                        <StackLayout VerticalOptions="Center">
+                            <Label  Text="Enter the town" TextColor="White" FontSize="20" HorizontalOptions="Center" />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="Center">
+                            <Editor Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Placeholder="Enter Note Here" Margin="10,10" />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="Center">
+                            <Button Text="Enter" Grid.Row="2" Grid.Column="1"  Margin="10,0"  BackgroundColor="Blue" TextColor="White"/>
+                        </StackLayout>
+                    </StackLayout>                    
+                </StackLayout>
+            </Grid>
 
         </Grid>
     </ContentPage.Content>
