@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace WeatherApp.ViewModels
 {
-    class CurrentWeatherViewModel : INotifyPropertyChanged
+    public class CurrentWeatherViewModel : INotifyPropertyChanged
     {
         public Command GoToCityEnteringCommand { get; }
         string city;
@@ -22,15 +22,19 @@ namespace WeatherApp.ViewModels
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;
-        public CurrentWeatherViewModel()
+        public CurrentWeatherViewModel(string town)
         {
-            GoToCityEnteringCommand = new Command(async () =>
-            {
-                var enteringPageVM = new EnteringPageViewModel();
-                var currentweatherVM = new CurrentWeatherPage();
-                currentweatherVM.BindingContext = enteringPageVM;
-                await Application.Current.MainPage.Navigation.PushModalAsync(currentweatherVM);
-            });
+            City = town;
+            //GoToCityEnteringCommand = new Command(async () =>
+            //{
+            //    var enteringPageVM = new EnteringPageViewModel();
+            //    var currentweatherVM = new CurrentWeatherPage();
+            //    currentweatherVM.BindingContext = enteringPageVM;
+            //    await Application.Current.MainPage.Navigation.PushModalAsync(currentweatherVM);
+            //});
+        }
+        public CurrentWeatherViewModel()
+        { 
         }
     }
 }

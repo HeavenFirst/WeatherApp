@@ -26,6 +26,13 @@ namespace WeatherApp.Views
         private string Location { get; set; } = "England";
         public double Latitude { get; set; }
         public double Longitude { get; set; }
+        public CurrentWeatherPage(string city)
+        {
+            InitializeComponent();
+            Location = city;
+            GetWetherInfo();
+        }
+        
 
         private async void OnClicked(object sender, System.EventArgs e)
         {

@@ -2,32 +2,34 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using WeatherApp.Views;
 using Xamarin.Forms;
 
 namespace WeatherApp.ViewModels
 {
-    class EnteringPageViewModel : INotifyPropertyChanged
+    public class EnteringPageViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public EnteringPageViewModel()
         {
-            DismissPageCommand = new Command(async () =>
+            GetCityWeatherCommand = new Command(async () =>
             {
+                var weatherPageVM = new CurrentWeatherViewModel(TheTown);
+                var weatherPage = new CurrentWeatherPage();
+                weatherPage.BindingContext = weatherPageVM;
                 await Application.Current.MainPage.Navigation.PopModalAsync();
             });
-            NoteText = "note";
-            // PropertyChanged?.Invoke(this, args);
         }
-        public Command DismissPageCommand { get; }
+        public Command GetCityWeatherCommand { get; }
 
-        string noteText;
-        public string NoteText
+        string theTown;
+        public string TheTown
         {
-            get => noteText;
+            get => theTown;
             set
             {
-                noteText = value;
-                var args = new PropertyChangedEventArgs(nameof(NoteText));
+                theTown = value;
+                var args = new PropertyChangedEventArgs(nameof(TheTown));
                 PropertyChanged?.Invoke(this, args);
             }
         }
