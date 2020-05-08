@@ -1,31 +1,38 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WeatherApp.Actions;
 using WeatherApp.Models;
+using WeatherApp.ViewModels;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace WeatherApp.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+    //[XamlCompilation(XamlCompilationOptions.Compile)]
+    [DesignTimeVisible(false)]
     public partial class CurrentWeatherPage : ContentPage
     {
         public CurrentWeatherPage()
         {
             InitializeComponent();
-            //GetWetherInfo();
             GetCoordinates();
         }
         private string Location { get; set; } = "England";
         public double Latitude { get; set; }
         public double Longitude { get; set; }
 
-
+        private async void OnClicked(object sender, System.EventArgs e)
+        {
+            ImageButton but = (ImageButton)sender;
+            but.BackgroundColor = Color.Red;
+            await Navigation.PushModalAsync(new EnteringPage());
+        }
         private async void GetCoordinates()
         {
             try

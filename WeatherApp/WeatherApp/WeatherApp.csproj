@@ -20,7 +20,7 @@
     <EmbeddedResource Update="Views\CurrentWeatherPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\EnteringPageViewModel.xaml">
+    <EmbeddedResource Update="Views\EnteringPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
