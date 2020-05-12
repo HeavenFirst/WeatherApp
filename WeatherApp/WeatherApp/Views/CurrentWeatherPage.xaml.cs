@@ -21,11 +21,24 @@ namespace WeatherApp.Views
         private string Location { get; set; } = "France";
         public double Latitude { get; set; }
         public double Longitude { get; set; }
+
+        public static Rain rain { get; set; }
+        public static Wind wind { get; set; }
+        public static Clouds clouds { get; set; }
+        public static Weather[] weather { get; set; }
+        public static Main main { get; set; }
+
+        public static Rain rain2 { get; set; }
+        public static Wind wind2 { get; set; }
+        public static Clouds clouds2 { get; set; }
+        public static Weather[] weather2 { get; set; }
+        public static Main main2 { get; set; }
+
         public CurrentWeatherPage(string city)
         {            
             if (city != string.Empty)
             {
-                 InitializeComponent();
+                InitializeComponent();
                 Location = city;
                 GetWetherInfo();
             }
@@ -42,6 +55,19 @@ namespace WeatherApp.Views
             ImageButton but = (ImageButton)sender;
             but.BackgroundColor = Color.Red;
             await Navigation.PushModalAsync(new EnteringPage());
+        }
+
+        private async void GoToDetails(object sender, System.EventArgs e)
+        {
+            ImageButton but = (ImageButton)sender;
+            but.BackgroundColor = Color.Gray;
+            await Navigation.PushModalAsync(new ViewDitails(rain, wind, clouds, weather, main));            
+        }
+        private async void GoToDetails2(object sender, System.EventArgs e)
+        {
+            ImageButton but = (ImageButton)sender;
+            but.BackgroundColor = Color.Gray;
+            await Navigation.PushModalAsync(new ViewDitails(rain2, wind2, clouds2, weather2, main2));
         }
         private async void GetCoordinates()
         {
@@ -133,11 +159,21 @@ namespace WeatherApp.Views
                     dateOneTxt.Text = DateTime.Parse(allList[0].dt_txt).ToString("dd MMM");
                     iconOneImg.Source = $"w{ allList[0].weather[0].icon}";
                     tempOneTxt.Text = allList[0].main.temp.ToString("0");
+                    rain = allList[0].rain;
+                    wind = allList[0].wind;
+                    weather = allList[0].weather;
+                    clouds = allList[0].clouds;
+                    main = allList[0].main;
 
                     dayTwoTxt.Text = DateTime.Parse(allList[1].dt_txt).ToString("dddd");
                     dateTwoTxt.Text = DateTime.Parse(allList[1].dt_txt).ToString("dd MMM");
                     iconTwoImg.Source = $"w{ allList[1].weather[0].icon}";
-                    tempTwoTxt.Text = allList[1].main.temp.ToString("0");                   
+                    tempTwoTxt.Text = allList[1].main.temp.ToString("0");
+                    rain2 = allList[1].rain;
+                    wind2 = allList[1].wind;
+                    weather2 = allList[1].weather;
+                    clouds2 = allList[1].clouds;
+                    main2 = allList[1].main;
                 }
                 catch(Exception ex)
                 {

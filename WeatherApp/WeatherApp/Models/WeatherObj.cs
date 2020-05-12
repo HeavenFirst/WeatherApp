@@ -40,7 +40,7 @@ namespace WeatherApp.Models
 
     public class Rain
     {
-        public float _3h { get; set; }
+        public float? _3h { get; set; }
     }
 
     public class WeatherInfo
