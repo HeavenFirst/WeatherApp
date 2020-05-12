@@ -92,7 +92,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\sun.png" />
+    <AndroidResource Include="Resources\drawable\w04n.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\cloud.png" />
@@ -104,7 +104,7 @@
     <AndroidResource Include="Resources\drawable\rain.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\sunCloud.png" />
+    <AndroidResource Include="Resources\drawable\w04d.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\earth.png" />

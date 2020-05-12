@@ -134,7 +134,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\sun.png" />
+    <BundleResource Include="Resources\w04n.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\cloud.png" />
@@ -146,7 +146,7 @@
     <BundleResource Include="Resources\rain.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\sunCloud.png" />
+    <BundleResource Include="Resources\w04d.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\earth.png" />

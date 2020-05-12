@@ -59,14 +59,14 @@ namespace WeatherApp.Views
 
         private async void GoToDetails(object sender, System.EventArgs e)
         {
-            ImageButton but = (ImageButton)sender;
-            but.BackgroundColor = Color.Gray;
+            //ImageButton but = (ImageButton)sender;
+            //but.BackgroundColor = Color.Gray;
             await Navigation.PushModalAsync(new ViewDitails(rain, wind, clouds, weather, main));            
         }
         private async void GoToDetails2(object sender, System.EventArgs e)
         {
-            ImageButton but = (ImageButton)sender;
-            but.BackgroundColor = Color.Gray;
+            //ImageButton but = (ImageButton)sender;
+            //but.BackgroundColor = Color.Gray;
             await Navigation.PushModalAsync(new ViewDitails(rain2, wind2, clouds2, weather2, main2));
         }
         private async void GetCoordinates()
@@ -130,7 +130,8 @@ namespace WeatherApp.Views
             }
             else
             {
-                await DisplayAlert("Weather Info", "No weather informayion faund!", "ok");
+                await DisplayAlert("Weather Info", "The name of town was entered with grammar mistake!", "ok");
+                await Navigation.PushModalAsync(new EnteringPage());
             }
         }
 
@@ -183,7 +184,8 @@ namespace WeatherApp.Views
             }
             else
             {
-                await DisplayAlert("Weather Info", "No weather informayion faund!", "ok");
+                await DisplayAlert("Weather Info", "The name of town was entered with grammar mistake!", "ok");
+                await Navigation.PushModalAsync(new EnteringPage());
             }
         }
     }

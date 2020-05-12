@@ -56,8 +56,8 @@
         <Grid BackgroundColor="#758ABA" Opacity="0.3" Grid.Column="0" >
             <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
                 <Label x:Name="dayOneTxt"  TextColor="White" FontSize="14" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                <Label x:Name="dateOneTxt" Margin="0,-5,0,0"  TextColor="White" FontSize="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                <ImageButton x:Name="iconOneImg" Source="cloud.png" Margin="0,20" WidthRequest="30" HeightRequest="20" Clicked="GoToDetails"/>
+                    <Label x:Name="dateOneTxt" Margin="0,-5,0,0"  TextColor="White" FontSize="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <ImageButton x:Name="iconOneImg"   WidthRequest="200" HeightRequest="70" Clicked="GoToDetails" BackgroundColor="#758ABA"/>                               <!--Source="cloud.png"  Margin="0,20"-->
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="0">
                         <Label x:Name="tempOneTxt"  TextColor="White" FontSize="23" HorizontalOptions="Center"/>
                         <Label Text=" °С" TextColor="White" FontSize="23" HorizontalOptions="Center" />
@@ -66,10 +66,12 @@
         </Grid>
 
         <Grid BackgroundColor="#758ABA" Opacity="0.7" Grid.Column="1" >
-            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
                 <Label x:Name="dayTwoTxt"  TextColor="White" FontSize="14" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
                 <Label x:Name="dateTwoTxt" Margin="0,-5,0,0"  TextColor="White" FontSize="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                <ImageButton x:Name="iconTwoImg" Margin="0,20" Source="cloud.png" WidthRequest="30" HeightRequest="20" Clicked="GoToDetails2" />
+                    <ImageButton x:Name="iconTwoImg"  WidthRequest="200" HeightRequest="70" Clicked="GoToDetails2" BackgroundColor="#758ABA"/>                          <!--Margin="0,20" Source="cloud.png"-->
+                    <!--<Button  x:Name="tempTwoTxt" ContentLayout="Top,0" Image="cloud.png"  HorizontalOptions="Start" Clicked="GoToDetails2"/>-->
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="0">
                         <Label x:Name="tempTwoTxt"  TextColor="White" FontSize="23" HorizontalOptions="Center" />
                         <Label Text=" °С" TextColor="White" FontSize="23" HorizontalOptions="Center" />
