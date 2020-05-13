@@ -15,21 +15,21 @@ namespace WeatherApp.ViewModels
             GetCityWeatherCommand = new Command(async () =>
             {
                // var weatherPageVM = new CurrentWeatherViewModel();
-                var weatherPage = new CurrentWeatherPage(TheTown);
+                var weatherPage = new CurrentWeatherPage(TownName);
                 //weatherPage.BindingContext = weatherPageVM;
                 await Application.Current.MainPage.Navigation.PushModalAsync(weatherPage);
             });
         }
         public Command GetCityWeatherCommand { get; }
 
-        string theTown;
-        public string TheTown
+        string townName;
+        public string TownName
         {
-            get => theTown;
+            get => townName;
             set
             {
-                theTown = value;
-                var args = new PropertyChangedEventArgs(nameof(TheTown));
+                townName = value;
+                var args = new PropertyChangedEventArgs(nameof(TownName));
                 PropertyChanged?.Invoke(this, args);
             }
         }

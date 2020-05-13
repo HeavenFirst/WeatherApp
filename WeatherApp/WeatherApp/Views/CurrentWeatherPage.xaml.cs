@@ -88,6 +88,7 @@ namespace WeatherApp.Views
             catch (Exception ex)
             {
                 Console.WriteLine(ex.StackTrace);
+                throw;
             }
         }
 
@@ -130,7 +131,7 @@ namespace WeatherApp.Views
             }
             else
             {
-                await DisplayAlert("Weather Info", "The name of town was entered with grammar mistake!", "ok");
+                await DisplayAlert("Weather Info", "The name of town was entered with grammar mistake!", "ok" );
                 await Navigation.PushModalAsync(new EnteringPage());
             }
         }

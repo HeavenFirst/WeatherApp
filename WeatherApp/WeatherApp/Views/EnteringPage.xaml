@@ -26,7 +26,7 @@
                             <Label  Text="Enter the town" TextColor="White" FontSize="20" HorizontalOptions="Center" />
                         </StackLayout>
                         <StackLayout VerticalOptions="Center">
-                            <Editor Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Placeholder="Enter Note Here" Margin="10,10" Text="{Binding TheTown}"/>
+                            <Editor Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Placeholder="Enter Note Here" Margin="10,10" Text="{Binding TownName}"/>
                         </StackLayout>
                         <StackLayout VerticalOptions="Center">
                             <Button Text="Enter" Grid.Row="2" Grid.Column="1"  Margin="10,0"  BackgroundColor="Blue" TextColor="White"  Command="{Binding GetCityWeatherCommand}"/> <!--Clicked="OnClickedWeather"-->
