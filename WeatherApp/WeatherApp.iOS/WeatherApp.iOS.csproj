@@ -70,7 +70,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -134,24 +133,75 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\w04n.png" />
+    <BundleResource Include="Resources\w50d.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\cloud.png" />
+    <BundleResource Include="Resources\w50n.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drop.png" />
+    <BundleResource Include="Resources\wind.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\rain.png" />
+    <BundleResource Include="Resources\lines.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\w04d.png" />
+    <BundleResource Include="Resources\gauge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\humidity.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\earth.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\lines.png" />
+    <BundleResource Include="Resources\cloudiness.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\w01d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\w01n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\w02d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\w02n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\w03d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\w03n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\w04d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\w04n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\w09d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\w09n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\w10d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\w10n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\w11d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\w11n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\w13d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\w13n.png" />
   </ItemGroup>
 </Project>
