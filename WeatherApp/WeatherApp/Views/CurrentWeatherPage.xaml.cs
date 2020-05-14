@@ -45,7 +45,7 @@ namespace WeatherApp.Views
             else
             {
                 InitializeComponent();
-                GetCoordinates();
+               // GetCoordinates();
             }
         }
         
