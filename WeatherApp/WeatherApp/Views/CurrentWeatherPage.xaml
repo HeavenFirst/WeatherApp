@@ -5,12 +5,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:WeatherApp.ViewModels"
              mc:Ignorable="d"
-             x:Class="WeatherApp.Views.CurrentWeatherPage">
-                
+             x:Class="WeatherApp.Views.CurrentWeatherPage">                
              
-    <!--<ContentPage.BindingContext>
+    <ContentPage.BindingContext>
         <local:CurrentWeatherViewModel/>
-    </ContentPage.BindingContext>-->
+    </ContentPage.BindingContext>
+    
     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -23,7 +23,7 @@
             </Grid.RowDefinitions>
             <BoxView Grid.RowSpan="2" BackgroundColor="#7585BA" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
             <Image x:Name="bgImg" Aspect="AspectFill" Grid.RowSpan="2" Source="earth.png" Opacity="0.2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-            <ImageButton Source="lines.png" Margin="20"   WidthRequest="23" HeightRequest="15" HorizontalOptions="Start" VerticalOptions="Center" Clicked="OnClicked"/> <!--Command="{Binding GoToCityEnteringCommand}"-->
+            <ImageButton Source="lines.png" Margin="20"   WidthRequest="23" HeightRequest="15" HorizontalOptions="Start" VerticalOptions="Center" Command="{Binding GoToCityEnteringCommand}" />            <!--Clicked="OnClicked"-->
             <Grid Grid.Row="1">
                 <StackLayout Spacing="20">
                     <StackLayout Orientation="Horizontal" Spacing="50" HorizontalOptions="Center" >
@@ -50,38 +50,31 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-                <!--<ColumnDefinition Width="*"/>-->
-            </Grid.ColumnDefinitions> 
-        
-        <Grid BackgroundColor="#758ABA" Opacity="0.3" Grid.Column="0" >
-            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
-                <Label x:Name="dayOneTxt"  TextColor="White" FontSize="14" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            </Grid.ColumnDefinitions>
+            <Grid BackgroundColor="#758ABA" Opacity="0.3" Grid.Column="0" >
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                    <Label x:Name="dayOneTxt"  TextColor="White" FontSize="14" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                     <Label x:Name="dateOneTxt" Margin="0,-5,0,0"  TextColor="White" FontSize="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                    <ImageButton x:Name="iconOneImg"   WidthRequest="200" HeightRequest="70" Clicked="GoToDetails" BackgroundColor="#758ABA"/>                               <!--Source="cloud.png"  Margin="0,20"-->
+                    <ImageButton x:Name="iconOneImg"   WidthRequest="200" HeightRequest="70" Clicked="GoToDetails" BackgroundColor="#758ABA"/> 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="0">
                         <Label x:Name="tempOneTxt"  TextColor="White" FontSize="23" HorizontalOptions="Center"/>
                         <Label Text=" °С" TextColor="White" FontSize="23" HorizontalOptions="Center" />
+                    </StackLayout>
                 </StackLayout>
-            </StackLayout>
-        </Grid>
+            </Grid>
 
-        <Grid BackgroundColor="#758ABA" Opacity="0.7" Grid.Column="1" >
-                
+            <Grid BackgroundColor="#758ABA" Opacity="0.7" Grid.Column="1" >
+
                 <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
-                <Label x:Name="dayTwoTxt"  TextColor="White" FontSize="14" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-                <Label x:Name="dateTwoTxt" Margin="0,-5,0,0"  TextColor="White" FontSize="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                    <ImageButton x:Name="iconTwoImg"  WidthRequest="200" HeightRequest="70" Clicked="GoToDetails2" BackgroundColor="#758ABA"/>                          <!--Margin="0,20" Source="cloud.png"-->
-                    <!--<Button  x:Name="tempTwoTxt" ContentLayout="Top,0" Image="cloud.png"  HorizontalOptions="Start" Clicked="GoToDetails2"/>-->
+                    <Label x:Name="dayTwoTxt"  TextColor="White" FontSize="14" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                    <Label x:Name="dateTwoTxt" Margin="0,-5,0,0"  TextColor="White" FontSize="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                    <ImageButton x:Name="iconTwoImg"  WidthRequest="200" HeightRequest="70" Clicked="GoToDetails2" BackgroundColor="#758ABA"/>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="0">
                         <Label x:Name="tempTwoTxt"  TextColor="White" FontSize="23" HorizontalOptions="Center" />
                         <Label Text=" °С" TextColor="White" FontSize="23" HorizontalOptions="Center" />
                     </StackLayout>
-            </StackLayout>
-        </Grid>
-            <!--<Grid BackgroundColor="#758ABA" Opacity="0.8" Grid.Column="2" >
-                --><!--<ImageButton x:Name="earth.png"  Margin="0,20" WidthRequest="30" HeightRequest="20"/>--><!--
-                <ImageButton Source="earth.png"  Margin="18, 31, 18, 31" WidthRequest="30" HeightRequest="20" Clicked="GoToDetails" CornerRadius="55" Aspect="AspectFill"/>
-            </Grid>-->
+                </StackLayout>
+            </Grid>
         </Grid>
     </Grid>
 </ContentPage>
