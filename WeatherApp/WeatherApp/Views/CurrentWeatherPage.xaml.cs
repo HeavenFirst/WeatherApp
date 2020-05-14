@@ -17,13 +17,11 @@ namespace WeatherApp.Views
 {
     [DesignTimeVisible(false)]
     public partial class CurrentWeatherPage : ContentPage
-    {       
-        private string Location { get; set; } = "France";
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
+    {
+        private string Location { get; set; } = "Berdyansk";
 
 
-        public CurrentWeatherPage(string city)
+        public  CurrentWeatherPage(string city)
         {            
             if (city != string.Empty)
             {
@@ -34,64 +32,25 @@ namespace WeatherApp.Views
             else
             {
                 InitializeComponent();
-                GetCoordinates();
+                Coordinates();                
+                GetWetherInfo();               
             }
         }
         
-
-        private async void OnClicked(object sender, System.EventArgs e)
+        private async void Coordinates()
         {
-            ImageButton but = (ImageButton)sender;
-            but.BackgroundColor = Color.Red;
-            await Navigation.PushModalAsync(new EnteringPage());
-        }
-
-        private async void GetCoordinates()
-        {
-            try
-            {
-                var request = new GeolocationRequest(GeolocationAccuracy.Best);
-                var location = await Geolocation.GetLocationAsync(request);
-
-                if(location != null)
-                {
-                    Latitude = location.Latitude;
-                    Longitude = location.Longitude;
-                    Location = await GetCity(location);
-
-                    GetWetherInfo();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.StackTrace);
-                throw;
-            }
-        }
-
-        private async Task<string> GetCity(Location location)
-        {
-            var places = await Geocoding.GetPlacemarksAsync(location);
-            var currentPlace = places?.FirstOrDefault();
-
-            if(currentPlace != null)
-            {
-                return $"{currentPlace.Locality},{currentPlace.CountryName}";
-            }
-            return null;
+            var coord = new Coordinates();
+            Location = await coord.GetCoordinates();
         }
 
         private async void GetWetherInfo()
         {
-            var url = $"http://api.openweathermap.org/data/2.5/weather?q={Location}&appid=c276e11cf8bfc48f24c61bd35615ca70&units=metric";
-
-            var result = await ApiColler.Get(url);
-
-            if (result.Succsessful)
+            var currentWeather = new WetherInfo(Location);
+            var weatherInfo = await currentWeather.GetWetherInfo();
+            if (weatherInfo != null)
             {
                 try
                 {
-                    var weatherInfo = JsonConvert.DeserializeObject<WeatherInfo>(result.Response);
                     descriptionTxt.Text = weatherInfo.weather[0].description.ToUpper();
                     iconImg.Source = $"w{weatherInfo.weather[0].icon}";
                     cityTxt.Text = weatherInfo.name.ToUpper();
@@ -115,15 +74,13 @@ namespace WeatherApp.Views
 
         private async void GetForecast()
         {
-            var url = $"http://api.openweathermap.org/data/2.5/forecast?q={Location}&appid=c276e11cf8bfc48f24c61bd35615ca70&units=metric";
-            var result = await ApiColler.Get(url);
+            var forecast = new WetherInfo(Location);
+            var forecastInfo = await forecast.GetForecast();
 
-            if (result.Succsessful)
+            if(forecastInfo != null)
             {
                 try
                 {
-                    var forecastInfo = JsonConvert.DeserializeObject<ForecastInfo>(result.Response);
-
                     List<List> allList = new List<List>();
 
                     foreach(var list in forecastInfo.list)
