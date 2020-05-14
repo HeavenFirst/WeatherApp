@@ -19,8 +19,14 @@ namespace WeatherApp.ViewModels
                 weatherPage.BindingContext = weatherPageVM;
                 await Application.Current.MainPage.Navigation.PushModalAsync(weatherPage);
             });
+
+            OnClickedBackCommand = new Command(async () =>
+            {
+                await Application.Current.MainPage.Navigation.PopModalAsync();
+            });
         }
         public Command GetCityWeatherCommand { get; }
+        public Command OnClickedBackCommand { get; }
 
         string townName;
         public string TownName

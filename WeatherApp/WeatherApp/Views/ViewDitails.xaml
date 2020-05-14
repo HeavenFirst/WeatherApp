@@ -3,8 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:WeatherApp.ViewModels"
              mc:Ignorable="d"
              x:Class="WeatherApp.Views.ViewDitails">
+    <ContentPage.BindingContext>
+        <local:ViewDitailsViewModel/>
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -14,25 +19,25 @@
 
             <BoxView Grid.RowSpan="2" BackgroundColor="#7585BA" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
             <Image x:Name="bgImg" Aspect="AspectFill" Grid.RowSpan="2" Source="earth.png" Opacity="0.2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-            <ImageButton Source="lines.png" Margin="20"  WidthRequest="23" HeightRequest="15" HorizontalOptions="Start" VerticalOptions="Center" Clicked="OnClickedBack"/>
+            <ImageButton Source="lines.png" Margin="20"  WidthRequest="23" HeightRequest="15" HorizontalOptions="Start" VerticalOptions="Center" Command="{Binding OnClickedBackCommand}" /> <!--Clicked="OnClickedBack"-->
             <Grid Grid.Row="1">
                 <StackLayout Spacing="20">
                     <StackLayout  Spacing="50" HorizontalOptions="Center" >
                         <StackLayout Orientation="Horizontal" VerticalOptions="Center">
                             <Label  Text="humidity: " TextColor="White" FontSize="20" HorizontalOptions="Center" />
-                            <Label x:Name="humidityTxt"  TextColor="White" FontSize="23" HorizontalOptions="Center" />
+                            <Label   TextColor="White" FontSize="23" HorizontalOptions="Center" Text="{Binding HumidityTxt}" />
                         </StackLayout>
                         <StackLayout  Orientation="Horizontal" VerticalOptions="Center">
                             <Label  Text="wind speed: " TextColor="White" FontSize="20" HorizontalOptions="Center" />
-                            <Label x:Name="windSpeed"  TextColor="White" FontSize="23" HorizontalOptions="Center" />
+                            <Label   TextColor="White" FontSize="23" HorizontalOptions="Center" Text="{Binding WindSpeed}" />
                         </StackLayout>
                         <StackLayout  Orientation="Horizontal" VerticalOptions="Center">
                             <Label  Text="pressure: " TextColor="White" FontSize="20" HorizontalOptions="Center" />
-                            <Label x:Name="pressure"  TextColor="White" FontSize="23" HorizontalOptions="Center" />
+                            <Label   TextColor="White" FontSize="23" HorizontalOptions="Center" Text="{Binding Pressure}" /> 
                         </StackLayout>
                         <StackLayout  Orientation="Horizontal" VerticalOptions="Center">
                             <Label  Text="rainfall: " TextColor="White" FontSize="20" HorizontalOptions="Center" />
-                            <Label x:Name="rainfall"  TextColor="White" FontSize="23" HorizontalOptions="Center" />
+                            <Label x:Name="rainfall"  TextColor="White" FontSize="23" HorizontalOptions="Center" Text="{Binding Rainfall}" />
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>

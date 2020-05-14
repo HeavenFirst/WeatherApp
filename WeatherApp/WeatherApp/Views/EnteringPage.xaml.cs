@@ -17,11 +17,5 @@ namespace WeatherApp.Views
         {
             InitializeComponent();
         }
-        private async void OnClickedBack(object sender, System.EventArgs e)
-        {
-            ImageButton button = (ImageButton)sender;
-            button.BackgroundColor = Color.Red;
-            await Navigation.PopModalAsync();
-        }
     }
 }
