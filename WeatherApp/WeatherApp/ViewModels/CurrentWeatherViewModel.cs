@@ -32,8 +32,7 @@ namespace WeatherApp.ViewModels
         string dateTwoTxt;
         string iconTwoImg;
         string tempTwoTxt;
-        #endregion
-        public event PropertyChangedEventHandler PropertyChanged;
+        #endregion   
         
 
         #region Properties
@@ -167,6 +166,8 @@ namespace WeatherApp.ViewModels
             }
         }
         #endregion
+
+        public event PropertyChangedEventHandler PropertyChanged;
         private string Location { get; set; } 
 
         public Command GoToCityEnteringCommand { get; }
@@ -221,21 +222,41 @@ namespace WeatherApp.ViewModels
             var weatherInfo = await currentWeather.GetWetherInfo();
             if (weatherInfo != null)
             {
-                try
-                {
                     DescriptionTxt = weatherInfo.weather[0].description.ToUpper();
                     IconImg = $"w{weatherInfo.weather[0].icon}";
                     CityTxt = weatherInfo.name.ToUpper();
                     TemperatureTxt = weatherInfo.main.temp.ToString("0");
-
                     DateTxt = DateTime.Now.ToString("dddd,  MMM dd").ToUpper();
 
-                    GetForecast();
-                }
-                catch /*(Exception ex)*/
-                {
-                    //await DisplayAlert("Weather Info", "Weather Info", ex.Message, "ok");
-                }
+                    GetForecast();               
+            }
+            else
+            {
+                //await DisplayAlert("Weather Info", "The name of town was entered with grammar mistake!", "ok");
+                var enteringPageVM = new EnteringPageViewModel();
+                var enteringPage = new EnteringPage();
+                enteringPage.BindingContext = enteringPageVM;
+                await Application.Current.MainPage.Navigation.PushModalAsync(enteringPage);                
+            }
+        }
+
+        private async void GetForecast()
+        {
+            var forecast = new WetherInfo(Location);
+            var allList = await forecast.GetForecast();
+
+            if (allList != null)
+            {
+                DayOneTxt = DateTime.Parse(allList[0].dt_txt).ToString("dddd");
+                DateOneTxt = DateTime.Parse(allList[0].dt_txt).ToString("dd MMM");
+                IconOneImg = $"w{ allList[0].weather[0].icon}";
+                TempOneTxt = allList[0].main.temp.ToString("0");
+
+
+                DayTwoTxt = DateTime.Parse(allList[1].dt_txt).ToString("dddd");
+                DateTwoTxt = DateTime.Parse(allList[1].dt_txt).ToString("dd MMM");
+                IconTwoImg = $"w{ allList[1].weather[0].icon}";
+                TempTwoTxt = allList[1].main.temp.ToString("0");
             }
             else
             {
@@ -244,62 +265,6 @@ namespace WeatherApp.ViewModels
                 var enteringPage = new EnteringPage();
                 enteringPage.BindingContext = enteringPageVM;
                 await Application.Current.MainPage.Navigation.PushModalAsync(enteringPage);
-                //await Navigation.PushModalAsync(new EnteringPage());
-            }
-        }
-
-        private async void GetForecast()
-        {
-            var forecast = new WetherInfo(Location);
-            var forecastInfo = await forecast.GetForecast();
-
-            if (forecastInfo != null)
-            {
-                try
-                {
-                    List<List> allList = new List<List>();
-
-                    foreach (var list in forecastInfo.list)
-                    {
-                        var date = DateTime.Parse(list.dt_txt);
-
-                        if (date > DateTime.Now && date.Hour == 0 && date.Minute == 0 && date.Second == 0)
-                            allList.Add(list);
-                    }
-
-                    DayOneTxt = DateTime.Parse(allList[0].dt_txt).ToString("dddd");
-                    DateOneTxt = DateTime.Parse(allList[0].dt_txt).ToString("dd MMM");
-                    IconOneImg = $"w{ allList[0].weather[0].icon}";
-                    TempOneTxt = allList[0].main.temp.ToString("0");
-                    DetailsPage.rain = allList[0].rain;
-                    DetailsPage.wind = allList[0].wind;
-                    DetailsPage.weather = allList[0].weather;
-                    DetailsPage.clouds = allList[0].clouds;
-                    DetailsPage.main = allList[0].main;
-
-                    DayTwoTxt = DateTime.Parse(allList[1].dt_txt).ToString("dddd");
-                    DateTwoTxt = DateTime.Parse(allList[1].dt_txt).ToString("dd MMM");
-                    IconTwoImg = $"w{ allList[1].weather[0].icon}";
-                    TempTwoTxt = allList[1].main.temp.ToString("0");
-                    DetailsPage.rain2 = allList[1].rain;
-                    DetailsPage.wind2 = allList[1].wind;
-                    DetailsPage.weather2 = allList[1].weather;
-                    DetailsPage.clouds2 = allList[1].clouds;
-                    DetailsPage.main2 = allList[1].main;
-                }
-                catch/* (Exception ex)*/
-                {
-                   // await DisplayAlert("Weather Info", "Weather Info", ex.Message, "ok");
-                }
-
-            }
-            else
-            {
-                //await DisplayAlert("Weather Info", "The name of town was entered with grammar mistake!", "ok");
-                var enteringPageVM = new EnteringPageViewModel();
-                var enteringPage = new EnteringPage();
-                enteringPage.BindingContext = enteringPageVM;
-                await Application.Current.MainPage.Navigation.PushModalAsync(enteringPage);//await Navigation.PushModalAsync(new EnteringPage());
             }
         }
 
