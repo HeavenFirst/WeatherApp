@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WeatherApp.StaticVariables;
 using Xamarin.Essentials;
 
 namespace WeatherApp.Actions
@@ -28,8 +29,7 @@ namespace WeatherApp.Actions
                     Latitude = location.Latitude;
                     Longitude = location.Longitude;
                     Location = await GetCity(location);
-
-                   // GetWetherInfo();
+                    CurrentWeatherConst.Location = Location;
                 }
             }
             catch (Exception ex)

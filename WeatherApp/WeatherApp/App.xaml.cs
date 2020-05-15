@@ -11,7 +11,7 @@ namespace WeatherApp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage( new CurrentWeatherPage(""));
+            MainPage = new NavigationPage( new CurrentWeatherPage());
            //MainPage =new CurrentWeatherPage("");
         }
 

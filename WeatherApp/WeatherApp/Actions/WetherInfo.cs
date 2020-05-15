@@ -1,9 +1,21 @@
 ﻿using Newtonsoft.Json;
+using System.Threading.Tasks;
+using WeatherApp.Models;
+
+
+
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
-using WeatherApp.Models;
+using System.ComponentModel;
+using System.Linq;
+using WeatherApp.Actions;
+using WeatherApp.StaticVariables;
+using WeatherApp.ViewModels;
+using Xamarin.Essentials;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
 
 namespace WeatherApp.Actions
 {
@@ -48,7 +60,7 @@ namespace WeatherApp.Actions
             {
                 try
                 {
-                    var forecastInfo = JsonConvert.DeserializeObject<ForecastInfo>(result.Response);
+                    forecastInfo = JsonConvert.DeserializeObject<ForecastInfo>(result.Response);
                 }
                 catch /*(Exception ex)*/
                 {

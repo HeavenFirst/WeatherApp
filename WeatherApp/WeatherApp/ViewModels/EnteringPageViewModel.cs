@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using WeatherApp.StaticVariables;
 using WeatherApp.Views;
 using Xamarin.Forms;
 
 namespace WeatherApp.ViewModels
 {
-    public class EnteringPageViewModel : INotifyPropertyChanged
+    public class EnteringPageViewModel : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         public EnteringPageViewModel()
         {
             GetCityWeatherCommand = new Command(async () =>
             {
-                var weatherPageVM = new CurrentWeatherViewModel();
-                var weatherPage = new CurrentWeatherPage(TownName);
-                weatherPage.BindingContext = weatherPageVM;
+                CurrentWeatherConst.Location = TownName;
+                var weatherPageVM = new CurrentWeatherViewModel(/*TownName*/);
+                var weatherPage = new CurrentWeatherPage(/*TownName*/);
+                weatherPage.BindingContext = weatherPageVM;                
                 await Application.Current.MainPage.Navigation.PushModalAsync(weatherPage);
+               
             });
 
             OnClickedBackCommand = new Command(async () =>
@@ -35,8 +37,7 @@ namespace WeatherApp.ViewModels
             set
             {
                 townName = value;
-                var args = new PropertyChangedEventArgs(nameof(TownName));
-                PropertyChanged?.Invoke(this, args);
+                OnPropertyChanged(TownName);
             }
         }
     }

@@ -7,9 +7,8 @@ using Xamarin.Forms;
 
 namespace WeatherApp.ViewModels
 {
-    public class ViewDitailsViewModel : INotifyPropertyChanged
+    public class ViewDitailsViewModel : BaseViewModel 
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         public Command OnClickedBackCommand { get; }
         string humidityTxt;
         string windSpeed;
@@ -27,20 +26,19 @@ namespace WeatherApp.ViewModels
             {
                 await Application.Current.MainPage.Navigation.PopModalAsync();
             });
-            windSpeed = wind.speed.ToString();
-            pressure = main.pressure.ToString();
-            humidityTxt = main.humidity.ToString();
-            rainfall = (rain == null) ? "No rain" : rain._3h.ToString();
+            WindSpeed = wind.speed.ToString();
+            Pressure = main.pressure.ToString();
+            HumidityTxt = main.humidity.ToString();
+            Rainfall = (rain == null) ? "No rain" : rain._3h.ToString();
         }
-
+        #region Properties
         public string HumidityTxt
         {
             get => humidityTxt;
             set
             {
                 humidityTxt = value;
-                var args = new PropertyChangedEventArgs(nameof(HumidityTxt));
-                PropertyChanged?.Invoke(this, args);
+                OnPropertyChanged(HumidityTxt);
             }
         }
 
@@ -50,8 +48,7 @@ namespace WeatherApp.ViewModels
             set
             {
                 windSpeed = value;
-                var args = new PropertyChangedEventArgs(nameof(WindSpeed));
-                PropertyChanged?.Invoke(this, args);
+                OnPropertyChanged(WindSpeed);
             }
         }
 
@@ -61,8 +58,7 @@ namespace WeatherApp.ViewModels
             set
             {
                 pressure = value;
-                var args = new PropertyChangedEventArgs(nameof(Pressure));
-                PropertyChanged?.Invoke(this, args);
+                OnPropertyChanged(Pressure);
             }
         }
 
@@ -72,9 +68,9 @@ namespace WeatherApp.ViewModels
             set
             {
                 rainfall = value;
-                var args = new PropertyChangedEventArgs(nameof(Rainfall));
-                PropertyChanged?.Invoke(this, args);
+                OnPropertyChanged(Rainfall);
             }
         }
+        #endregion
     }
 }
