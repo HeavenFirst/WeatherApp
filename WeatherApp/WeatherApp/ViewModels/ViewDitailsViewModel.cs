@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
-using WeatherApp.Models;
+﻿using WeatherApp.Models;
 using Xamarin.Forms;
 
 namespace WeatherApp.ViewModels

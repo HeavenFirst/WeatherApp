@@ -1,31 +1,21 @@
 ﻿using Newtonsoft.Json;
 using System.Threading.Tasks;
 using WeatherApp.Models;
-
-
-
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel;
-using System.Linq;
-using WeatherApp.Actions;
 using WeatherApp.StaticVariables;
-using WeatherApp.ViewModels;
-using Xamarin.Essentials;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+
 
 
 namespace WeatherApp.Actions
 {
-    public class WetherInfo
+    public class WeatherCore
     {
         private string Location { get; set; }
         public WeatherInfo WeatherInfo { get; set; }
         public ForecastInfo forecastInfo { get; set; }
 
-        public WetherInfo(string location)
+        public WeatherCore(string location)
         {
             Location = location;
         }

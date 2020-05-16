@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using WeatherApp.Actions;
-using WeatherApp.Models;
 using WeatherApp.StaticVariables;
 using WeatherApp.Views;
 using Xamarin.Forms;
-
-
 using System.ComponentModel;
-using System.Text;
-using Newtonsoft.Json;
-using System.Threading.Tasks;
-using Xamarin.Forms.Xaml;
-using Xamarin.Essentials;
+
 
 namespace WeatherApp.ViewModels
 {
@@ -218,7 +211,7 @@ namespace WeatherApp.ViewModels
 
         private async void GetWetherInfo()
         {
-            var currentWeather = new WetherInfo(Location);
+            var currentWeather = new WeatherCore(Location);
             var weatherInfo = await currentWeather.GetWetherInfo();
             if (weatherInfo != null)
             {
@@ -242,8 +235,8 @@ namespace WeatherApp.ViewModels
 
         private async void GetForecast()
         {
-            var forecast = new WetherInfo(Location);
-            var allList = await forecast.GetForecast();
+            var weathCor = new WeatherCore(Location);
+            var allList = await weathCor.GetForecast();
 
             if (allList != null)
             {
