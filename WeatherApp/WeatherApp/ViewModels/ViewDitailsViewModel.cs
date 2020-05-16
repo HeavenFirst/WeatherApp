@@ -34,7 +34,7 @@ namespace WeatherApp.ViewModels
             set
             {
                 humidityTxt = value;
-                OnPropertyChanged(HumidityTxt);
+                OnPropertyChanged();
             }
         }
 
@@ -44,7 +44,7 @@ namespace WeatherApp.ViewModels
             set
             {
                 windSpeed = value;
-                OnPropertyChanged(WindSpeed);
+                OnPropertyChanged();
             }
         }
 
@@ -54,7 +54,7 @@ namespace WeatherApp.ViewModels
             set
             {
                 pressure = value;
-                OnPropertyChanged(Pressure);
+                OnPropertyChanged();
             }
         }
 
@@ -64,7 +64,7 @@ namespace WeatherApp.ViewModels
             set
             {
                 rainfall = value;
-                OnPropertyChanged(Rainfall);
+                OnPropertyChanged();
             }
         }
         #endregion

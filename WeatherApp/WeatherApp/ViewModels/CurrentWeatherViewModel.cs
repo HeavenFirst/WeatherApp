@@ -9,7 +9,7 @@ using System.ComponentModel;
 
 namespace WeatherApp.ViewModels
 {
-    public class CurrentWeatherViewModel : INotifyPropertyChanged //: BaseViewModel
+    public class CurrentWeatherViewModel : BaseViewModel
     {
         #region Values
         string descriptionTxt;
@@ -35,7 +35,7 @@ namespace WeatherApp.ViewModels
             set
             {
                 descriptionTxt = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(DescriptionTxt)));// OnPropertyChanged(DescriptionTxt);
+                OnPropertyChanged();
             }
         }
 
@@ -45,7 +45,7 @@ namespace WeatherApp.ViewModels
             set
             {
                 iconImg = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IconImg)));//OnPropertyChanged(IconImg);
+                OnPropertyChanged();
             }
         }
 
@@ -55,7 +55,7 @@ namespace WeatherApp.ViewModels
             set
             {
                 cityTxt = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CityTxt)));//OnPropertyChanged(CityTxt);
+                OnPropertyChanged();
             }
         }
 
@@ -65,7 +65,7 @@ namespace WeatherApp.ViewModels
             set
             {
                 temperatureTxt = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TemperatureTxt)));//OnPropertyChanged(TemperatureTxt);
+                OnPropertyChanged();
             }
         }
 
@@ -75,7 +75,7 @@ namespace WeatherApp.ViewModels
             set
             {
                 dateTxt = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(DateTxt)));// OnPropertyChanged(DateTxt);
+                OnPropertyChanged();
             }
         }
 
@@ -85,7 +85,7 @@ namespace WeatherApp.ViewModels
             set
             {
                 dayOneTxt = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(DayOneTxt)));// OnPropertyChanged(DayOneTxt);
+                OnPropertyChanged();
             }
         }
 
@@ -95,7 +95,7 @@ namespace WeatherApp.ViewModels
             set
             {
                 dateOneTxt = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IconOneImg)));// OnPropertyChanged(IconOneImg);
+                OnPropertyChanged();
             }
         }
 
@@ -105,7 +105,7 @@ namespace WeatherApp.ViewModels
             set
             {
                 iconOneImg = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IconOneImg)));//OnPropertyChanged(IconOneImg);
+                OnPropertyChanged();
             }
         }
 
@@ -115,7 +115,7 @@ namespace WeatherApp.ViewModels
             set
             {
                 tempOneTxt = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TempOneTxt)));// OnPropertyChanged(TempOneTxt);
+                OnPropertyChanged();
             }
         }
 
@@ -125,7 +125,7 @@ namespace WeatherApp.ViewModels
             set
             {
                 dayTwoTxt = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(DayTwoTxt)));// OnPropertyChanged(DayTwoTxt);
+                OnPropertyChanged();
             }
         }
 
@@ -135,7 +135,7 @@ namespace WeatherApp.ViewModels
             set
             {
                 dateTwoTxt = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(DateTwoTxt)));// OnPropertyChanged(DateTwoTxt);
+                OnPropertyChanged();
             }
         }
 
@@ -145,7 +145,7 @@ namespace WeatherApp.ViewModels
             set
             {
                 iconTwoImg = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IconTwoImg)));// OnPropertyChanged(IconTwoImg);
+                 OnPropertyChanged();
             }
         }
 
@@ -155,12 +155,11 @@ namespace WeatherApp.ViewModels
             set
             {
                 tempTwoTxt = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TempTwoTxt)));// OnPropertyChanged(TempTwoTxt);
+               OnPropertyChanged();
             }
         }
         #endregion
-
-        public event PropertyChangedEventHandler PropertyChanged;
+       
         private string Location { get; set; } 
 
         public Command GoToCityEnteringCommand { get; }

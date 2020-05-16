@@ -12,7 +12,7 @@ namespace WeatherApp.ViewModels
             {
                 CurrentWeatherConst.Location = TownName;
                 var weatherPageVM = new CurrentWeatherViewModel(/*TownName*/);
-                var weatherPage = new CurrentWeatherPage(/*TownName*/);
+                var weatherPage = new CurrentWeatherPage();
                 weatherPage.BindingContext = weatherPageVM;                
                 await Application.Current.MainPage.Navigation.PushModalAsync(weatherPage);
                
@@ -33,7 +33,7 @@ namespace WeatherApp.ViewModels
             set
             {
                 townName = value;
-                OnPropertyChanged(TownName);
+                OnPropertyChanged();
             }
         }
     }
