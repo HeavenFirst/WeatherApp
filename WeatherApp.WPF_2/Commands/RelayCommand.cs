@@ -37,8 +37,7 @@ namespace WeatherApp.WPF_2.Commands
             _execute(parameter);
         }
 
-        // Ensures WPF commanding infrastructure asks all RelayCommand objects whether their
-        // associated views should be enabled whenever a command is invoked 
+
         public event EventHandler CanExecuteChanged
         {
             add
