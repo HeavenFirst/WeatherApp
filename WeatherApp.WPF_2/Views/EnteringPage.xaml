@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="WeatherApp.WPF_2.Views.EnteringPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WeatherApp.WPF_2.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="600">
+    
+        <Grid Background="#7585BA">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="/ImagesHolder/earth.png" Grid.RowSpan="2" Opacity="0.3"  VerticalAlignment="Stretch"/>            
+            <Button  Command="{Binding OnClickedBackCommand}" Width="33" Height="33" Margin="33" HorizontalAlignment="Left"  VerticalAlignment="Top">
+                <Grid>
+                    <Image x:Name="linesButton" Source="/ImagesHolder/lines.png" Opacity="0.5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                </Grid>
+            </Button>
+            <Grid Grid.Row="1">
+                <StackPanel Margin="20">
+                    <StackPanel Margin="50" HorizontalAlignment="Center" >
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock  Text="Enter the town" Foreground="White" Margin="20" FontSize="20" HorizontalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel VerticalAlignment="Center">
+                        <TextBox Grid.Row="1" Grid.Column="0" FontSize="20" Grid.ColumnSpan="2"  Margin="20" Text="{Binding TownName}"/> <!--PreviewTextInput="Enter Note Here"-->
+                    </StackPanel>
+                        <StackPanel VerticalAlignment="Center">
+                            <Button Content="Enter" Grid.Row="2" Grid.Column="1"  Margin="20" Height="25" Background="Blue" Foreground="White" Command="{Binding GetCityWeatherCommand}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+
+    
+</UserControl>

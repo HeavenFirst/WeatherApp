@@ -69,6 +69,16 @@ namespace WeatherApp.WPF_2.ViewModels
             ChangeViewModel(PageViewModels[5]);
         }
 
+        private void GetCityWeatherScreen(object obj)
+        {
+            ChangeViewModel(PageViewModels[6]);
+        }
+
+        private void OnClickedBackScreen(object obj)
+        {
+            ChangeViewModel(PageViewModels[7]);
+        }
+
         public MainWindowViewModel()
         {
             // Add available pages and set page
@@ -82,6 +92,8 @@ namespace WeatherApp.WPF_2.ViewModels
             Mediator.Subscribe("GoToCityEnteringScreen", GoToCityEnteringScreen);
             Mediator.Subscribe("GoToDetailsScreen", GoToDetailsScreen);
             Mediator.Subscribe("GoToDetails2Screen", GoToDetails2Screen);
+            Mediator.Subscribe("GetCityWeatherScreen", GetCityWeatherScreen);
+            Mediator.Subscribe("OnClickedBackScreen", OnClickedBackScreen);
         }
     }
 }

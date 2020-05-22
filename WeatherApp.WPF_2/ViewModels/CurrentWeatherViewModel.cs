@@ -7,7 +7,7 @@ using WeatherApp.WPF_2.Helper;
 
 namespace WeatherApp.WPF_2.ViewModels
 {
-    class CurrentWeatherViewModel : BaseViewModel, IPageViewModel
+    public class CurrentWeatherViewModel : BaseViewModel, IPageViewModel
     {
         #region Values
         string descriptionTxt;
