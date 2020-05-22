@@ -2,7 +2,7 @@
 
 namespace WeatherApp.StaticVariables
 {
-    static class DetailsPage
+    public static class DetailsPage
     {
         public static Rain rain { get; set; }
         public static Wind wind { get; set; }
