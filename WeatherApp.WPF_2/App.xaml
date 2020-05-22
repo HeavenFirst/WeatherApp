@@ -4,13 +4,7 @@
              xmlns:local="clr-namespace:WeatherApp.WPF_2"
              xmlns:views="clr-namespace:WeatherApp.WPF_2.Views"
              xmlns:viewmodels="clr-namespace:WeatherApp.WPF_2.ViewModels">
-    <Application.Resources>
-        <DataTemplate DataType="{x:Type viewmodels:UserControl1ViewModel}">
-            <views:UserControl1 />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodels:UserControl2ViewModel}">
-            <views:UserControl2 />
-        </DataTemplate>
+    <Application.Resources>        
         <DataTemplate DataType="{x:Type viewmodels:EnteringPageViewModel}">
             <views:EnteringPage />
         </DataTemplate>

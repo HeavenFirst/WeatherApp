@@ -43,60 +43,46 @@ namespace WeatherApp.WPF_2.ViewModels
             CurrentPageViewModel = PageViewModels
                 .FirstOrDefault(vm => vm == viewModel);
         }
+       
 
-        private void OnGo1Screen(object obj)
+        private void GoToCityEnteringScreen(object obj)
         {
             ChangeViewModel(PageViewModels[0]);
         }
 
-        private void OnGo2Screen(object obj)
-        {
-            ChangeViewModel(PageViewModels[1]);
-        }
-
-        private void GoToCityEnteringScreen(object obj)
+        private void GoToDetailsScreen(object obj)
         {
             ChangeViewModel(PageViewModels[2]);
         }
 
-        private void GoToDetailsScreen(object obj)
-        {
-            ChangeViewModel(PageViewModels[4]);
-        }
-
         private void GoToDetails2Screen(object obj)
         {
-            ChangeViewModel(PageViewModels[4]);
+            ChangeViewModel(PageViewModels[2]);
         }
 
         private void GetCityWeatherScreen(object obj)
         {
-            ChangeViewModel(PageViewModels[3]);
+            ChangeViewModel(PageViewModels[1]);
         }
 
         private void OnClickedBackScreen(object obj)
         {
-            ChangeViewModel(PageViewModels[3]);
+            ChangeViewModel(PageViewModels[1]);
         }
 
         private void OnClickedBack2Screen(object obj)
         {
-            ChangeViewModel(PageViewModels[3]);
+            ChangeViewModel(PageViewModels[1]);
         }
 
         public MainWindowViewModel()
-        {
-            // Add available pages and set page
-            PageViewModels.Add(new UserControl1ViewModel());
-            PageViewModels.Add(new UserControl2ViewModel());
+        {            
             PageViewModels.Add(new EnteringPageViewModel());
             PageViewModels.Add(new CurrentWeatherViewModel());
             PageViewModels.Add(new ViewDitailsViewModel());
 
-            CurrentPageViewModel = PageViewModels[2]; //2   <------ <-------- START PAGE !!!!!!! <----------- <---------- <-------
+            CurrentPageViewModel = PageViewModels[0]; 
 
-            Mediator.Subscribe("GoTo1Screen", OnGo1Screen);
-            Mediator.Subscribe("GoTo2Screen", OnGo2Screen);
             Mediator.Subscribe("GoToCityEnteringScreen", GoToCityEnteringScreen);
             Mediator.Subscribe("GoToDetailsScreen", GoToDetailsScreen);
             Mediator.Subscribe("GoToDetails2Screen", GoToDetails2Screen);
