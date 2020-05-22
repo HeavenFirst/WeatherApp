@@ -89,8 +89,11 @@ namespace WeatherApp.WPF_2.ViewModels
             // Add available pages and set page
             PageViewModels.Add(new UserControl1ViewModel());
             PageViewModels.Add(new UserControl2ViewModel());
+            PageViewModels.Add(new EnteringPageViewModel());
+            PageViewModels.Add(new CurrentWeatherViewModel());
+            PageViewModels.Add(new ViewDitailsViewModel());
 
-            CurrentPageViewModel = PageViewModels[1]; //2   <------ <-------- START PAGE !!!!!!! <----------- <---------- <-------
+            CurrentPageViewModel = PageViewModels[2]; //2   <------ <-------- START PAGE !!!!!!! <----------- <---------- <-------
 
             Mediator.Subscribe("GoTo1Screen", OnGo1Screen);
             Mediator.Subscribe("GoTo2Screen", OnGo2Screen);
