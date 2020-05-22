@@ -3,15 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WeatherApp.WPF_2.Views"
-             xmlns:imagePath="clr-namespace:WeatherApp.WPF_2.ImagesHolder"
-             xmlns:Resource="clr-namespace:WeatherApp.WPF_2.Icons"
+             xmlns:local="clr-namespace:WeatherApp.WPF_2.Views"  
+            
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="BlanchedAlmond">
-        <Button Content="Go" Command="{Binding GoTo1}" Width="33" Height="33" Margin="33" HorizontalAlignment="Left"  VerticalAlignment="Top">
-            <!--<Image Source="{x:Static Resource:lines.png}"/>-->
-            <Image Source="Resource/lines.png"/>
+             d:DesignHeight="800" d:DesignWidth="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height = "auto"/>
+            <RowDefinition Height ="*"/>
+        </Grid.RowDefinitions>
+        <Button  Command="{Binding GoTo1}" Width="33" Height="33" Margin="33" HorizontalAlignment="Left"  VerticalAlignment="Top">
+            <!--<Image Source="{x:Static image:Resources.lines.png}"/>-->
+            <Grid>
+                <Image x:Name="linesButton" Source="/ImagesHolder/lines.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/> 
+            </Grid>
         </Button>
+        <StackPanel Grid.Row="1" >
+            <Image Source="/ImagesHolder/earth.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        </StackPanel>
     </Grid>
 </UserControl>

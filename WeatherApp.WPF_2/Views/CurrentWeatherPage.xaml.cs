@@ -14,14 +14,13 @@ using System.Windows.Shapes;
 namespace WeatherApp.WPF_2.Views
 {
     /// <summary>
-    /// Interaction logic for UserControl2.xaml
+    /// Interaction logic for CurrentWeatherPage.xaml
     /// </summary>
-    public partial class UserControl2 : UserControl
+    public partial class CurrentWeatherPage : UserControl
     {
-        public UserControl2()
+        public CurrentWeatherPage()
         {
             InitializeComponent();
-           // linesButton.Source = new BitmapImage(new Uri("/ImagesHolder/lines.png", UriKind.Relative));
         }
     }
 }

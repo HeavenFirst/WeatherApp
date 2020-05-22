@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="WeatherApp.WPF_2.Views.CurrentWeatherPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WeatherApp.WPF_2.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height = "*"/>
+            <RowDefinition Height ="auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#7585BA" >          
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image Source="/ImagesHolder/earth.png" Grid.RowSpan="2" Opacity="0.3" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+            <Button  Command="{Binding GoToCityEnteringCommand}" Width="33" Height="33" Margin="33" HorizontalAlignment="Left"  VerticalAlignment="Top">
+                <Grid>
+                    <Image x:Name="linesButton" Source="/ImagesHolder/lines.png" Opacity="0.5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                </Grid>
+            </Button>
+            <Grid Grid.Row="1">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20">
+                        <StackPanel VerticalAlignment="Center" Margin="20">
+                            <Image  Source="{Binding IconImg}"  Width="67" Height="50" />
+                            <TextBlock  FontSize="13" HorizontalAlignment="Center" Foreground="AliceBlue" Text="tggg{Binding DescriptionTxt}"/>
+                        </StackPanel>
+                        <StackPanel VerticalAlignment="Center" Margin="20">
+                            <TextBlock  Text="t{Binding CityTxt}" Background="White" FontSize="20" FontFamily="Bold"  HorizontalAlignment="Center" Margin="10"/>
+                            <TextBlock Text="t{Binding DateTxt}"   Foreground="White" FontSize="13" HorizontalAlignment="Center" Margin="10"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Margin="20">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0">
+                                <TextBlock  Text="{Binding TemperatureTxt}" Foreground="White" FontSize="150" HorizontalAlignment="Center"/>
+                                <TextBlock  Foreground="White" FontSize="150" HorizontalAlignment="Center"> °</TextBlock>
+                            </StackPanel>
+                            <TextBlock Margin="0,-30,0,0" Foreground="White" FontSize="20" HorizontalAlignment="Center">CELSIUS</TextBlock>
+                    </StackPanel>                    
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" Height="190" Margin="0">
+            <!--ColumnSpacing="0"-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Background="#758ABA" Opacity="0.5" Grid.Column="0" >
+                <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <TextBlock Text="hh{Binding DayOneTxt}" Foreground="White" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                    <TextBlock Text="iu{Binding DateOneTxt}" Margin="0,5,0,10"  Foreground="White" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Button   Width="200" Height="70" Command="{Binding GoToDetailsCommand}" Background="#758ABA">
+                        <Image Source="{Binding IconOneImg}" />
+                    </Button>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <TextBlock  Text="uy{Binding TempOneTxt}" Foreground="White" FontSize="23" HorizontalAlignment="Center"/>
+                        <TextBlock Foreground="White" FontSize="23" HorizontalAlignment="Center"> °С</TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+
+            <Grid Background="#758ABA" Opacity="0.7" Grid.Column="1" >
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <TextBlock Text="hg{Binding DayTwoTxt}" Foreground="White"  FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                    <TextBlock Text="ff{Binding DateTwoTxt}" Margin="0,5,0,10"  Foreground="White" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Button   Width="200" Height="70"  Command="{Binding GoToDetails2Command}" Background="#758ABA">
+                        <Image Source="{Binding IconTwoImg}" />
+                    </Button>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                        <TextBlock  Text="i{Binding TempTwoTxt}"  Foreground="White" FontSize="23" HorizontalAlignment="Center" />
+                        <TextBlock Foreground="White" FontSize="23" HorizontalAlignment="Center"> °С</TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</UserControl>
