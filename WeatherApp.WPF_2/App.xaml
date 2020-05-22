@@ -11,5 +11,14 @@
         <DataTemplate DataType="{x:Type viewmodels:UserControl2ViewModel}">
             <views:UserControl2 />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:EnteringPageViewModel}">
+            <views:EnteringPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:CurrentWeatherViewModel}">
+            <views:CurrentWeatherPage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ViewDitailsViewModel}">
+            <views:ViewDitails />
+        </DataTemplate>
     </Application.Resources>
 </Application>

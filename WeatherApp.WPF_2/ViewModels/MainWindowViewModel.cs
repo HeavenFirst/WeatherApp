@@ -56,7 +56,7 @@ namespace WeatherApp.WPF_2.ViewModels
 
         private void GoToCityEnteringScreen(object obj)
         {
-            ChangeViewModel(PageViewModels[3]);
+            ChangeViewModel(PageViewModels[2]);
         }
 
         private void GoToDetailsScreen(object obj)
@@ -66,17 +66,22 @@ namespace WeatherApp.WPF_2.ViewModels
 
         private void GoToDetails2Screen(object obj)
         {
-            ChangeViewModel(PageViewModels[5]);
+            ChangeViewModel(PageViewModels[4]);
         }
 
         private void GetCityWeatherScreen(object obj)
         {
-            ChangeViewModel(PageViewModels[6]);
+            ChangeViewModel(PageViewModels[3]);
         }
 
         private void OnClickedBackScreen(object obj)
         {
-            ChangeViewModel(PageViewModels[7]);
+            ChangeViewModel(PageViewModels[3]);
+        }
+
+        private void OnClickedBack2Screen(object obj)
+        {
+            ChangeViewModel(PageViewModels[3]);
         }
 
         public MainWindowViewModel()
@@ -85,7 +90,7 @@ namespace WeatherApp.WPF_2.ViewModels
             PageViewModels.Add(new UserControl1ViewModel());
             PageViewModels.Add(new UserControl2ViewModel());
 
-            CurrentPageViewModel = PageViewModels[1]; //   <------ <-------- START PAGE !!!!!!! <----------- <---------- <-------
+            CurrentPageViewModel = PageViewModels[1]; //2   <------ <-------- START PAGE !!!!!!! <----------- <---------- <-------
 
             Mediator.Subscribe("GoTo1Screen", OnGo1Screen);
             Mediator.Subscribe("GoTo2Screen", OnGo2Screen);
@@ -94,6 +99,7 @@ namespace WeatherApp.WPF_2.ViewModels
             Mediator.Subscribe("GoToDetails2Screen", GoToDetails2Screen);
             Mediator.Subscribe("GetCityWeatherScreen", GetCityWeatherScreen);
             Mediator.Subscribe("OnClickedBackScreen", OnClickedBackScreen);
+            Mediator.Subscribe("OnClickedBack2Screen", OnClickedBack2Screen);
         }
     }
 }
