@@ -4,7 +4,6 @@ using WeatherApp.Actions;
 using WeatherApp.StaticVariables;
 using WeatherApp.Views;
 using Xamarin.Forms;
-//using WeatherApp.Core.StaticVariables;
 using System.ComponentModel;
 
 

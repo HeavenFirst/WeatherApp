@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using WeatherApp.StaticVariables;
 using WeatherApp.WPF_2.Commands;
 using WeatherApp.WPF_2.Helper;
 
@@ -9,6 +10,10 @@ namespace WeatherApp.WPF_2.ViewModels
 {
     public class EnteringPageViewModel : BaseViewModel, IPageViewModel
     {
+        public EnteringPageViewModel()
+        {
+            CurrentWeatherConst.Location = TownName;
+        }
         private ICommand _getCityWeatherCommand;
         public ICommand GetCityWeatherCommand
         {
@@ -29,7 +34,7 @@ namespace WeatherApp.WPF_2.ViewModels
             {
                 return _onClickedBackCommand ?? (_onClickedBackCommand = new RelayCommand(x =>
                 {
-                    Mediator.Notify("OnClickedBackScreen", "");
+                    Mediator.Notify("OnClickedBackScreen", "/*TownName*/");
                 }));
             }
         }
