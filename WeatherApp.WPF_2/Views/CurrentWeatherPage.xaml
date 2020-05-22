@@ -27,11 +27,11 @@
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20">
                         <StackPanel VerticalAlignment="Center" Margin="20">
                             <Image  Source="{Binding IconImg}"  Width="67" Height="50" />
-                            <TextBlock  FontSize="13" HorizontalAlignment="Center" Foreground="AliceBlue" Text="tggg{Binding DescriptionTxt}"/>
+                            <TextBlock  FontSize="13" HorizontalAlignment="Center" Foreground="AliceBlue" Text="{Binding DescriptionTxt}"/>
                         </StackPanel>
                         <StackPanel VerticalAlignment="Center" Margin="20">
-                            <TextBlock  Text="t{Binding CityTxt}" Background="White" FontSize="20" FontFamily="Bold"  HorizontalAlignment="Center" Margin="10"/>
-                            <TextBlock Text="t{Binding DateTxt}"   Foreground="White" FontSize="13" HorizontalAlignment="Center" Margin="10"/>
+                            <TextBlock  Text="{Binding CityTxt}" Background="White" FontSize="20" FontFamily="Bold"  HorizontalAlignment="Center" Margin="10"/>
+                            <TextBlock Text="{Binding DateTxt}"   Foreground="White" FontSize="13" HorizontalAlignment="Center" Margin="10"/>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Margin="20">
@@ -45,37 +45,36 @@
             </Grid>
         </Grid>
         <Grid Grid.Row="1" Height="190" Margin="0">
-            <!--ColumnSpacing="0"-->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid Background="#758ABA" Opacity="0.5" Grid.Column="0" >
-                <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <TextBlock Text="hh{Binding DayOneTxt}" Foreground="White" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
-                    <TextBlock Text="iu{Binding DateOneTxt}" Margin="0,5,0,10"  Foreground="White" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    <Button   Width="200" Height="70" Command="{Binding GoToDetailsCommand}" Background="#758ABA">
-                        <Image Source="{Binding IconOneImg}" />
-                    </Button>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                        <TextBlock  Text="uy{Binding TempOneTxt}" Foreground="White" FontSize="23" HorizontalAlignment="Center"/>
-                        <TextBlock Foreground="White" FontSize="23" HorizontalAlignment="Center"> °С</TextBlock>
+                <Button   Command="{Binding GoToDetailsCommand}" Background="#758ABA">
+                    <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <TextBlock Text="{Binding DayOneTxt}" Foreground="White" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        <TextBlock Text="{Binding DateOneTxt}" Margin="0,5,0,10"  Foreground="White" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <Image Source="{Binding IconOneImg}"  Width="200" Height="70" />
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                            <TextBlock  Text="{Binding TempOneTxt}" Foreground="White" FontSize="23" HorizontalAlignment="Center"/>
+                            <TextBlock Foreground="White" FontSize="23" HorizontalAlignment="Center"> °С</TextBlock>
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
+                </Button>
             </Grid>
 
             <Grid Background="#758ABA" Opacity="0.7" Grid.Column="1" >
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <TextBlock Text="hg{Binding DayTwoTxt}" Foreground="White"  FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
-                    <TextBlock Text="ff{Binding DateTwoTxt}" Margin="0,5,0,10"  Foreground="White" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    <Button   Width="200" Height="70"  Command="{Binding GoToDetails2Command}" Background="#758ABA">
-                        <Image Source="{Binding IconTwoImg}" />
-                    </Button>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-                        <TextBlock  Text="i{Binding TempTwoTxt}"  Foreground="White" FontSize="23" HorizontalAlignment="Center" />
-                        <TextBlock Foreground="White" FontSize="23" HorizontalAlignment="Center"> °С</TextBlock>
+                <Button  Command="{Binding GoToDetails2Command}" Background="#758ABA">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <TextBlock Text="{Binding DayTwoTxt}" Foreground="White"  FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        <TextBlock Text="{Binding DateTwoTxt}" Margin="0,5,0,10"  Foreground="White" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <Image Source="{Binding IconTwoImg}"  Width="200" Height="70"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                            <TextBlock  Text="{Binding TempTwoTxt}"  Foreground="White" FontSize="23" HorizontalAlignment="Center" />
+                            <TextBlock Foreground="White" FontSize="23" HorizontalAlignment="Center"> °С</TextBlock>
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
+                </Button>
             </Grid>
         </Grid>
 
