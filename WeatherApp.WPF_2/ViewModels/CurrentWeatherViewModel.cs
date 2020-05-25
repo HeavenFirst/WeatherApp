@@ -163,6 +163,14 @@ namespace WeatherApp.WPF_2.ViewModels
         public CurrentWeatherViewModel()
         {
             Location = CurrentWeatherConst.Location;
+            if(Location != null)
+            GetWetherInfo();
+        }
+
+        public CurrentWeatherViewModel(string location)
+        {
+            Location = location;    
+            if(location != null)
             GetWetherInfo();
         }
 
@@ -206,54 +214,27 @@ namespace WeatherApp.WPF_2.ViewModels
 
         private async void GetWetherInfo()
         {
-            var currentWeather = new WeatherCore(Location);
-            var weatherInfo = await currentWeather.GetWetherInfo();
-            if (weatherInfo != null)
-            {
-                DescriptionTxt = weatherInfo.weather[0].description.ToUpper();
-                IconImg = $"w{weatherInfo.weather[0].icon}";
-                CityTxt = weatherInfo.name.ToUpper();
-                TemperatureTxt = weatherInfo.main.temp.ToString("0");
-                DateTxt = DateTime.Now.ToString("dddd,  MMM dd").ToUpper();
+                DescriptionTxt = CurrentWeatherConst.DescriptionTxt;
+                IconImg = CurrentWeatherConst.IconImg;
+                CityTxt = CurrentWeatherConst.CityTxt;
+                TemperatureTxt = CurrentWeatherConst.TemperatureTxt;
+                DateTxt = CurrentWeatherConst.DateTxt;
 
-                GetForecast();
-            }
-            else
-            {
-                //await DisplayAlert("Weather Info", "The name of town was entered with grammar mistake!", "ok");
-                //var enteringPageVM = new EnteringPageViewModel();
-                //var enteringPage = new EnteringPage();
-                //enteringPage.BindingContext = enteringPageVM;
-                //await Application.Current.MainPage.Navigation.PushModalAsync(enteringPage);
-            }
+                GetForecast();            
         }
 
         private async void GetForecast()
         {
-            var weathCor = new WeatherCore(Location);
-            var allList = await weathCor.GetForecast();
-
-            if (allList != null)
-            {
-                DayOneTxt = DateTime.Parse(allList[0].dt_txt).ToString("dddd");
-                DateOneTxt = DateTime.Parse(allList[0].dt_txt).ToString("dd MMM");
-                IconOneImg = $"w{ allList[0].weather[0].icon}";
-                TempOneTxt = allList[0].main.temp.ToString("0");
+                DayOneTxt = CurrentWeatherConst.DayOneTxt;//DateTime.Parse(allList[0].dt_txt).ToString("dddd");
+                DateOneTxt = CurrentWeatherConst.DateOneTxt;//DateTime.Parse(allList[0].dt_txt).ToString("dd MMM");
+                IconOneImg = CurrentWeatherConst.IconOneImg;//$"w{ allList[0].weather[0].icon}";
+                TempOneTxt = CurrentWeatherConst.TempOneTxt;//allList[0].main.temp.ToString("0");
 
 
-                DayTwoTxt = DateTime.Parse(allList[1].dt_txt).ToString("dddd");
-                DateTwoTxt = DateTime.Parse(allList[1].dt_txt).ToString("dd MMM");
-                IconTwoImg = $"w{ allList[1].weather[0].icon}";
-                TempTwoTxt = allList[1].main.temp.ToString("0");
-            }
-            else
-            {
-                //await DisplayAlert("Weather Info", "The name of town was entered with grammar mistake!", "ok");
-                //var enteringPageVM = new EnteringPageViewModel();
-                //var enteringPage = new EnteringPage();
-                //enteringPage.BindingContext = enteringPageVM;
-                //await Application.Current.MainPage.Navigation.PushModalAsync(enteringPage);
-            }
+                DayTwoTxt = CurrentWeatherConst.DayTwoTxt;//DateTime.Parse(allList[1].dt_txt).ToString("dddd");
+                DateTwoTxt = CurrentWeatherConst.DateTwoTxt;//DateTime.Parse(allList[1].dt_txt).ToString("dd MMM");
+                IconTwoImg = CurrentWeatherConst.IconTwoImg;//$"w{ allList[1].weather[0].icon}";
+                TempTwoTxt = CurrentWeatherConst.TempTwoTxt;//allList[1].main.temp.ToString("0");            
         }
     }
 }

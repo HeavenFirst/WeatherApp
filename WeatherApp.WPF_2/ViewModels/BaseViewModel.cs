@@ -12,15 +12,15 @@ namespace WeatherApp.WPF_2.ViewModels
 
         protected void OnPropertyChanged(string propertyName)
         {
-            VerifyPropertyName(propertyName);
+           // VerifyPropertyName(propertyName);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        [Conditional("DEBUG")]
-        private void VerifyPropertyName(string propertyName)
-        {
-            if (TypeDescriptor.GetProperties(this)[propertyName] == null)
-                throw new ArgumentNullException(GetType().Name + " does not contain property: " + propertyName);
-        }
+        //[Conditional("DEBUG")]
+        //private void VerifyPropertyName(string propertyName)
+        //{
+        //    if (TypeDescriptor.GetProperties(this)[propertyName] == null)
+        //        throw new ArgumentNullException(GetType().Name + " does not contain property: " + propertyName);
+        //}
     }
 }

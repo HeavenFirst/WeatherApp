@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using WeatherApp.Actions;
 using WeatherApp.StaticVariables;
 using WeatherApp.WPF_2.Commands;
 using WeatherApp.WPF_2.Helper;
@@ -12,16 +13,25 @@ namespace WeatherApp.WPF_2.ViewModels
     {
         public EnteringPageViewModel()
         {
+            if (TownName != null)
+            //TownName = "London";
             CurrentWeatherConst.Location = TownName;
+
         }
         private ICommand _getCityWeatherCommand;
-        public ICommand GetCityWeatherCommand
+        public  ICommand GetCityWeatherCommand
         {
             get
-            {
+            {               
                 return _getCityWeatherCommand ?? (_getCityWeatherCommand = new RelayCommand(x =>
                 {
-                    Mediator.Notify("GetCityWeatherScreen", "");
+                    if (TownName != null)
+                    {
+                        CurrentWeatherConst.Location = TownName;
+                        var currentWeather = new WeatherCore(TownName);
+                        var weatherInfo =  currentWeather.GetWetherInfo();
+                    }
+                    Mediator.Notify("GetCityWeatherScreen", TownName);
                 }));
             }
         }
@@ -34,7 +44,7 @@ namespace WeatherApp.WPF_2.ViewModels
             {
                 return _onClickedBackCommand ?? (_onClickedBackCommand = new RelayCommand(x =>
                 {
-                    Mediator.Notify("OnClickedBackScreen", "/*TownName*/");
+                    Mediator.Notify("OnClickedBackScreen", "");
                 }));
             }
         }
@@ -47,6 +57,7 @@ namespace WeatherApp.WPF_2.ViewModels
             set
             {
                 townName = value;
+                CurrentWeatherConst.Location = townName;
                 OnPropertyChanged(TownName);
             }
         }

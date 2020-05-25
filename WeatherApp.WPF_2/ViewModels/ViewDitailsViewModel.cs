@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using WeatherApp.Models;
 using WeatherApp.WPF_2.Commands;
 using WeatherApp.WPF_2.Helper;
 
@@ -56,6 +57,20 @@ namespace WeatherApp.WPF_2.ViewModels
         }
         #endregion
 
+        public ViewDitailsViewModel()
+        {         
+        }
+
+        public ViewDitailsViewModel(Rain rain, Wind wind, Clouds clouds, Weather[] weather, Main main)
+        {
+            if (wind != null)
+            {
+                WindSpeed = wind.speed.ToString();
+                Pressure = main.pressure.ToString();
+                HumidityTxt = main.humidity.ToString();
+                Rainfall = (rain == null) ? "No rain" : rain._3h.ToString();
+            }
+        }
         private ICommand _onClickedBack2Command;
         public ICommand OnClickedBack2Command
         {

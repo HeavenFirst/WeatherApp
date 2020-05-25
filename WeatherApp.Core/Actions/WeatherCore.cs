@@ -12,7 +12,7 @@ namespace WeatherApp.Actions
     public class WeatherCore
     {
         private string Location { get; set; }
-        public WeatherInfo WeatherInfo { get; set; }
+        public WeatherInfo weatherInfo { get; set; }
         public ForecastInfo forecastInfo { get; set; }
 
         public WeatherCore(string location)
@@ -30,14 +30,23 @@ namespace WeatherApp.Actions
             {
                 try
                 {
-                    WeatherInfo = JsonConvert.DeserializeObject<WeatherInfo>(result.Response);
+                    weatherInfo = JsonConvert.DeserializeObject<WeatherInfo>(result.Response);
+                    if(weatherInfo != null)
+                    {
+                        CurrentWeatherConst.DescriptionTxt = weatherInfo.weather[0].description.ToUpper();
+                        CurrentWeatherConst.IconImg = $"w{weatherInfo.weather[0].icon}";
+                        CurrentWeatherConst.CityTxt = weatherInfo.name.ToUpper();
+                        CurrentWeatherConst.TemperatureTxt = weatherInfo.main.temp.ToString("0");
+                        CurrentWeatherConst.DateTxt = DateTime.Now.ToString("dddd,  MMM dd").ToUpper();
+                        await GetForecast();
+                    }
 
                 }
                 catch /*(Exception ex)*/
                 {
                     //await DisplayAlert("Weather Info", "Weather Info", ex.Message, "ok");
                 }
-                return WeatherInfo;
+                return weatherInfo;
             }
             else return null;
         }
@@ -76,6 +85,17 @@ namespace WeatherApp.Actions
                         DetailsPage.weather2 = allList[1].weather;
                         DetailsPage.clouds2 = allList[1].clouds;
                         DetailsPage.main2 = allList[1].main;
+
+                        CurrentWeatherConst.DayOneTxt = DateTime.Parse(allList[0].dt_txt).ToString("dddd");
+                        CurrentWeatherConst.DateOneTxt = DateTime.Parse(allList[0].dt_txt).ToString("dd MMM");
+                        CurrentWeatherConst.IconOneImg = $"w{ allList[0].weather[0].icon}";
+                        CurrentWeatherConst.TempOneTxt = allList[0].main.temp.ToString("0");
+
+
+                        CurrentWeatherConst.DayTwoTxt = DateTime.Parse(allList[1].dt_txt).ToString("dddd");
+                        CurrentWeatherConst.DateTwoTxt = DateTime.Parse(allList[1].dt_txt).ToString("dd MMM");
+                        CurrentWeatherConst.IconTwoImg = $"w{ allList[1].weather[0].icon}";
+                        CurrentWeatherConst.TempTwoTxt = allList[1].main.temp.ToString("0");
                     }
                 }
                 catch /*(Exception ex)*/
