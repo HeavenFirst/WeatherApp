@@ -4,6 +4,7 @@ namespace WeatherApp.StaticVariables
     public static class CurrentWeatherConst
     {
         public static string Location { get; set; }
+        public static string CurrentCity { get; set; }
         public static string DescriptionTxt { get; set; }
         public static string IconImg { get; set; }
         public static string CityTxt { get; set; }

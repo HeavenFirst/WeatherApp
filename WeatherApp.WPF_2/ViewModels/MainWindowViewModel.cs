@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using WeatherApp.Actions;
 using WeatherApp.StaticVariables;
 using WeatherApp.WPF_2.Helper;
@@ -50,7 +51,7 @@ namespace WeatherApp.WPF_2.ViewModels
         private void GoToCityEnteringScreen(object obj)
         {
             //ChangeViewModel(PageViewModels[0]);
-            CurrentWeatherConst.Location = null;
+           // CurrentWeatherConst.Location = null;
             CurrentPageViewModel = new EnteringPageViewModel();
         }
 
@@ -68,10 +69,7 @@ namespace WeatherApp.WPF_2.ViewModels
 
         private void GetCityWeatherScreen(object obj)
         {
-            //ChangeViewModel(PageViewModels[1]/*("Kiyv")*/);
-           
-            //var currentWeather = new WeatherCore(CurrentWeatherConst.Location);
-            //var weatherInfo = /*await */currentWeather.GetWetherInfo();
+            //ChangeViewModel(PageViewModels[1];           
             CurrentPageViewModel = new CurrentWeatherViewModel(CurrentWeatherConst.Location);
         }
 

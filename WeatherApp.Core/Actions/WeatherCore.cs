@@ -96,6 +96,8 @@ namespace WeatherApp.Actions
                         CurrentWeatherConst.DateTwoTxt = DateTime.Parse(allList[1].dt_txt).ToString("dd MMM");
                         CurrentWeatherConst.IconTwoImg = $"w{ allList[1].weather[0].icon}";
                         CurrentWeatherConst.TempTwoTxt = allList[1].main.temp.ToString("0");
+
+                       // Mediator.Notify("GetCityWeatherScreen", Location);
                     }
                 }
                 catch /*(Exception ex)*/
