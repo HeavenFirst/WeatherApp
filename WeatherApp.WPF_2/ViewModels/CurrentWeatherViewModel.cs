@@ -159,17 +159,7 @@ namespace WeatherApp.WPF_2.ViewModels
         }
         #endregion
 
-        //private string earthPath { get; set; }
-        //public  string EarthPath { get; set; } = "pack://application:,,,/Resources/earth.png";
-        ////{
-        ////    get => earthPath;
-        ////    set
-        ////    {
-        ////        earthPath = "pack://application:,,,/Resources/earth.png";
-        ////        OnPropertyChanged(EarthPath);
-        ////    }
-        ////}
-
+        
         private string Location { get; set; }
 
         public CurrentWeatherViewModel()

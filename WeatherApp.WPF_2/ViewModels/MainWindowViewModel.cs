@@ -89,7 +89,7 @@ namespace WeatherApp.WPF_2.ViewModels
         {            
             PageViewModels.Add(new EnteringPageViewModel());
             PageViewModels.Add(new CurrentWeatherViewModel(CurrentWeatherConst.Location));
-            PageViewModels.Add(new ViewDitailsViewModel(/*DetailsPage.rain, DetailsPage.wind, DetailsPage.clouds, DetailsPage.weather, DetailsPage.main*/));
+            PageViewModels.Add(new ViewDitailsViewModel());
 
             CurrentPageViewModel = PageViewModels[0]; 
 

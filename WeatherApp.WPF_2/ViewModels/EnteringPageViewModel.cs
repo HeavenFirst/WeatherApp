@@ -16,9 +16,7 @@ namespace WeatherApp.WPF_2.ViewModels
         public EnteringPageViewModel()
         {
             if (TownName != null)
-            //TownName = "London";
             CurrentWeatherConst.Location = TownName;
-            //TownName = null;
 
         }
         private ICommand _getCityWeatherCommand;
