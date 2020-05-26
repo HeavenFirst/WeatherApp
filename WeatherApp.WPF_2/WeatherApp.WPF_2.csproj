@@ -7,7 +7,61 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\cloudiness.png" />
+    <None Remove="Resources\earth.png" />
+    <None Remove="Resources\gauge.png" />
+    <None Remove="Resources\humidity.png" />
+    <None Remove="Resources\lines.png" />
+    <None Remove="Resources\w01d.png" />
+    <None Remove="Resources\w01n.png" />
+    <None Remove="Resources\w02d.png" />
+    <None Remove="Resources\w02n.png" />
+    <None Remove="Resources\w03d.png" />
+    <None Remove="Resources\w03n.png" />
+    <None Remove="Resources\w04d.png" />
+    <None Remove="Resources\w04n.png" />
+    <None Remove="Resources\w09d.png" />
+    <None Remove="Resources\w09n.png" />
+    <None Remove="Resources\w10d.png" />
+    <None Remove="Resources\w10n.png" />
+    <None Remove="Resources\w11d.png" />
+    <None Remove="Resources\w11n.png" />
+    <None Remove="Resources\w13d.png" />
+    <None Remove="Resources\w13n.png" />
+    <None Remove="Resources\w50d.png" />
+    <None Remove="Resources\w50n.png" />
+    <None Remove="Resources\wind.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\WeatherApp.Core\WeatherApp.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\cloudiness.png" />
+    <Resource Include="Resources\earth.png" />
+    <Resource Include="Resources\gauge.png" />
+    <Resource Include="Resources\humidity.png" />
+    <Resource Include="Resources\lines.png" />
+    <Resource Include="Resources\w01d.png" />
+    <Resource Include="Resources\w01n.png" />
+    <Resource Include="Resources\w02d.png" />
+    <Resource Include="Resources\w02n.png" />
+    <Resource Include="Resources\w03d.png" />
+    <Resource Include="Resources\w03n.png" />
+    <Resource Include="Resources\w04d.png" />
+    <Resource Include="Resources\w04n.png" />
+    <Resource Include="Resources\w09d.png" />
+    <Resource Include="Resources\w09n.png" />
+    <Resource Include="Resources\w10d.png" />
+    <Resource Include="Resources\w10n.png" />
+    <Resource Include="Resources\w11d.png" />
+    <Resource Include="Resources\w11n.png" />
+    <Resource Include="Resources\w13d.png" />
+    <Resource Include="Resources\w13n.png" />
+    <Resource Include="Resources\w50d.png" />
+    <Resource Include="Resources\w50n.png" />
+    <Resource Include="Resources\wind.png" />
   </ItemGroup>
 
 </Project>

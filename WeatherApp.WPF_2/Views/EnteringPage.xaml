@@ -13,10 +13,10 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Image Source="/ImagesHolder/earth.png" Grid.RowSpan="2" Opacity="0.3"  VerticalAlignment="Stretch"/>            
+        <Image Source="pack://application:,,,/Resources/earth.png" Grid.RowSpan="2" Opacity="0.3"  VerticalAlignment="Stretch"/>            
             <Button  Command="{Binding OnClickedBackCommand}" Width="33" Height="33" Margin="33" HorizontalAlignment="Left"  VerticalAlignment="Top">
                 <Grid>
-                    <Image x:Name="linesButton" Source="/ImagesHolder/lines.png" Opacity="0.5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Image x:Name="linesButton" Source="/Resources/lines.png" Opacity="0.5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 </Grid>
             </Button>
             <Grid Grid.Row="1">

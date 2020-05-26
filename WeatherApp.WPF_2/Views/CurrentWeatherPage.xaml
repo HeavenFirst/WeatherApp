@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WeatherApp.WPF_2.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="600">
+             d:DesignHeight="800" d:DesignWidth="593">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height = "*"/>
@@ -16,10 +16,10 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Image Source="/ImagesHolder/earth.png" Grid.RowSpan="2" Opacity="0.3" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+            <Image Source="pack://application:,,,/Resources/earth.png" Grid.RowSpan="2" Opacity="0.3" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>            <!--""{Binding EarthPath}-->
             <Button  Command="{Binding GoToCityEnteringCommand}" Width="33" Height="33" Margin="33" HorizontalAlignment="Left"  VerticalAlignment="Top">
                 <Grid>
-                    <Image x:Name="linesButton" Source="/ImagesHolder/lines.png" Opacity="0.5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Image x:Name="linesButton" Source="pack://application:,,,/Resources/lines.png" Opacity="0.5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 </Grid>
             </Button>
             <Grid Grid.Row="1">

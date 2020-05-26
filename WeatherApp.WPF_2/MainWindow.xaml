@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WeatherApp.WPF_2"
         mc:Ignorable="d"
-        Title="Weather App" Height="800" Width="600">
+        Title="Weather App" Height="800" Width="572">
     <Grid>
         <ContentControl Content="{Binding CurrentPageViewModel}" />
     </Grid>

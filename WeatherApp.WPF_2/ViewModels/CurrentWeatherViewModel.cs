@@ -158,6 +158,18 @@ namespace WeatherApp.WPF_2.ViewModels
             }
         }
         #endregion
+
+        //private string earthPath { get; set; }
+        //public  string EarthPath { get; set; } = "pack://application:,,,/Resources/earth.png";
+        ////{
+        ////    get => earthPath;
+        ////    set
+        ////    {
+        ////        earthPath = "pack://application:,,,/Resources/earth.png";
+        ////        OnPropertyChanged(EarthPath);
+        ////    }
+        ////}
+
         private string Location { get; set; }
 
         public CurrentWeatherViewModel()
@@ -225,16 +237,16 @@ namespace WeatherApp.WPF_2.ViewModels
 
         private async void GetForecast()
         {
-                DayOneTxt = CurrentWeatherConst.DayOneTxt;//DateTime.Parse(allList[0].dt_txt).ToString("dddd");
-                DateOneTxt = CurrentWeatherConst.DateOneTxt;//DateTime.Parse(allList[0].dt_txt).ToString("dd MMM");
-                IconOneImg = CurrentWeatherConst.IconOneImg;//$"w{ allList[0].weather[0].icon}";
-                TempOneTxt = CurrentWeatherConst.TempOneTxt;//allList[0].main.temp.ToString("0");
+                DayOneTxt = CurrentWeatherConst.DayOneTxt;
+                DateOneTxt = CurrentWeatherConst.DateOneTxt;
+                IconOneImg = CurrentWeatherConst.IconOneImg;
+                TempOneTxt = CurrentWeatherConst.TempOneTxt;
 
 
-                DayTwoTxt = CurrentWeatherConst.DayTwoTxt;//DateTime.Parse(allList[1].dt_txt).ToString("dddd");
-                DateTwoTxt = CurrentWeatherConst.DateTwoTxt;//DateTime.Parse(allList[1].dt_txt).ToString("dd MMM");
-                IconTwoImg = CurrentWeatherConst.IconTwoImg;//$"w{ allList[1].weather[0].icon}";
-                TempTwoTxt = CurrentWeatherConst.TempTwoTxt;//allList[1].main.temp.ToString("0");            
+                DayTwoTxt = CurrentWeatherConst.DayTwoTxt;
+                DateTwoTxt = CurrentWeatherConst.DateTwoTxt;
+                IconTwoImg = CurrentWeatherConst.IconTwoImg;
+                TempTwoTxt = CurrentWeatherConst.TempTwoTxt;        
         }
     }
 }
