@@ -43,7 +43,7 @@ namespace WeatherApp.WPF_2.ViewModels
             get => iconImg;
             set
             {
-                iconImg = value;
+                iconImg = CurrentWeatherConst.ImageFullPath + value + CurrentWeatherConst.FileType; 
                 OnPropertyChanged(IconImg);
             }
         }
@@ -103,7 +103,7 @@ namespace WeatherApp.WPF_2.ViewModels
             get => iconOneImg;
             set
             {
-                iconOneImg = value;
+                iconOneImg = CurrentWeatherConst.ImageFullPath + value + CurrentWeatherConst.FileType;
                 OnPropertyChanged(IconOneImg);
             }
         }
@@ -143,7 +143,7 @@ namespace WeatherApp.WPF_2.ViewModels
             get => iconTwoImg;
             set
             {
-                iconTwoImg = value;
+                iconTwoImg = CurrentWeatherConst.ImageFullPath + value + CurrentWeatherConst.FileType;
                 OnPropertyChanged(IconTwoImg);
             }
         }

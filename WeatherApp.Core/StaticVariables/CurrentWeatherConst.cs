@@ -4,7 +4,6 @@ namespace WeatherApp.StaticVariables
     public static class CurrentWeatherConst
     {
         public static string Location { get; set; }
-        public static string CurrentCity { get; set; }
         public static string DescriptionTxt { get; set; }
         public static string IconImg { get; set; }
         public static string CityTxt { get; set; }
@@ -20,5 +19,9 @@ namespace WeatherApp.StaticVariables
         public static string DateTwoTxt { get; set; }
         public static string IconTwoImg { get; set; }
         public static string TempTwoTxt { get; set; }
+
+        public const string ImageFullPath  = "pack://application:,,,/Resources/";
+        public const string ImagePath = "/Resources/";
+        public const string FileType = ".png";
     }
 }

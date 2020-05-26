@@ -26,7 +26,7 @@
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20">
                         <StackPanel VerticalAlignment="Center" Margin="20">
-                            <Image  Source="{Binding IconImg}"  Width="67" Height="50" />
+                            <Image  Source="{Binding IconImg}"  Width="67" Height="50" />               <!--{Binding IconImg}"pack://application:,,,/Resources/w03d.png"-->
                             <TextBlock  FontSize="13" HorizontalAlignment="Center" Foreground="AliceBlue" Text="{Binding DescriptionTxt}"/>
                         </StackPanel>
                         <StackPanel VerticalAlignment="Center" Margin="20">
