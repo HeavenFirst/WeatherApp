@@ -46,7 +46,6 @@
   <ItemGroup>
     <Compile Include="Actions\ApiColler.cs" />
     <Compile Include="Actions\WeatherCore.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\Clouds.cs" />
     <Compile Include="Models\Coord.cs" />
